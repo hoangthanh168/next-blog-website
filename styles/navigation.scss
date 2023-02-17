@@ -1,0 +1,14 @@
+.navbar {
+    @apply flex justify-between items-center ;
+}
+
+ul.menu-category {
+    @apply flex items-center;
+    li {
+        @apply text-xl ;
+    }
+    li:hover {
+        @apply border-blue-500 text-blue-500 cursor-pointer
+    }
+}
+

@@ -1,0 +1,7 @@
+{
+    "site":{
+        "title":"Next.js Blog App",
+        "base_url":"/",
+        "logo":"/images/logo.png"
+    }
+}
