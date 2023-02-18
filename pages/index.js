@@ -3,7 +3,7 @@ import Base from '../layouts/Baseof'
 const index = () => {
   return (
     <Base>
-      <div className='h-[100rem]'></div>
+      <div className='h-[1000rem]'></div>
     </Base>
   )
 }

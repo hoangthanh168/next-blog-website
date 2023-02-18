@@ -10,7 +10,7 @@ const Logo = () => {
         <Link href='/'>
             <Image
                 src={logo}
-                width='200'
+                width='150'
                 height='30'
             />
         </Link> 

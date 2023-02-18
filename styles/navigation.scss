@@ -1,14 +1,18 @@
 .navbar {
-    @apply flex justify-between items-center ;
+    @apply flex justify-between items-center h-full ;
+    
 }
-
+.navbar-drop-down{
+    @debug calc(100% + 44px);
+}
 ul.menu-category {
-    @apply flex items-center;
+    @apply flex;
     li {
         @apply text-xl ;
     }
     li:hover {
-        @apply border-blue-500 text-blue-500 cursor-pointer
+        @apply border-blue-500 text-blue-500 cursor-pointer;
     }
+    
 }
 

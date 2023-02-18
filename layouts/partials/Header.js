@@ -6,47 +6,63 @@ import Link from "next/link";
 import { GrClose } from "react-icons/gr";
 import NavbarDropDown from "@layouts/components/NavbarDropDown";
 
-const header = () => {
+const Header = () => {
   const [navFixed, setNavFixed] = useState(false);
   const [activeItem, setActiveItem] = useState("");
   const [showMoreButton, setShowMoreButton] = useState(true);
-  useEffect(() => {});
+  useEffect(() => 
+  {
+    if (!showMoreButton) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  },[showMoreButton]);
 
   const getNavItemClasses = (itemName) => {
-    const baseClasses = "border-b-4 mr-5 h-full";
+    const baseClasses = " mr-5 h-full flex items-center h-full";
     if (activeItem === itemName) {
-      return `${baseClasses} border-blue-500 text-blue-500`;
+      return `${baseClasses} text-blue-500`;
     } else {
-      return `${baseClasses} border-transparent`;
+      return `${baseClasses}  `;
     }
   };
   const handleShowMoreButtonClick = () => {
     setShowMoreButton(!showMoreButton);
   };
-  const categories = ["Technology", "Entertainment", "Life", "World"];
+  const categories = ["Công nghệ", "Giải trí", "Cuộc sống", "Thế giới","Giới trẻ"];
   return (
+    
     <>
-      <header className="sticky top-0 z-1000 bg-white h-9 transition-all">
-        <nav className=" navbar container">
+      <header className=" fixed w-full h-[50px] z-50 ">
+        <nav className="navbar container ">
           <div>
             <Logo />
           </div>
-          <ul className="menu-category">
+          <ul className="menu-category h-full ">
             {categories.map((category) => (
-              <li className={getNavItemClasses(category) }
-                onClick={() => setActiveItem(category)}>
-                <Link href="/">{category}</Link>
+              <li
+              
+                className={getNavItemClasses(category)}
+                onClick={() => setActiveItem(category)}
+              >
+                <Link className="text-base font-medium" href="/">{category}</Link>
               </li>
             ))}
+            <li className="flex items-center relative">
+              <button
+                className="show-more pl-3 w-full h-full"
+                onClick={handleShowMoreButtonClick}
+              >
+                {showMoreButton ? (
+                  <FiMoreHorizontal className="w-5 h-5" />
+                ) : (
+                  <GrClose className="w-5 h-5" />
+                )}
+              </button>
+            </li>
           </ul>
-          <button className="show-more pl-3" onClick={handleShowMoreButtonClick}>
-            {showMoreButton ? (
-              <FiMoreHorizontal className="w-6 h-6" />
-            ) : (
-              <GrClose className="w-6 h-6" />
-            )}
-          </button>
-          <div className="tool-box flex">
+          <div className="tool-box flex items-center">
             <button>
               <AiOutlineSearch className="w-6 h-6 mr-3" />
             </button>
@@ -55,9 +71,9 @@ const header = () => {
             </Link>
           </div>
         </nav>
-        { !showMoreButton && <NavbarDropDown/>}
+        {!showMoreButton &&<NavbarDropDown/> }
       </header>
-     
     </>
   );
 };
+export default Header;

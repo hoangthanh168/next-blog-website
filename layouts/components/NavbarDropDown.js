@@ -1,61 +1,35 @@
-// import React from "react";
-
-// const NavbarDropDown = () => {
-//   return (
-//     <>
-//       <section className="navbar-drop-down absolute hidden z-10 inset-0 bg-white">
-//         <div className="container">
-//           <div className="header border-b border-b-gray-400">header</div>
-//           <div className="flex">
-//             <div className="content-left ">askdasdjaskld</div>
-//             <div className="content-right ">askdasdjaskld</div>
-//           </div>
-//         </div>
-//       </section>
-//     </>
-//   );
-// };
-
-// export default NavbarDropDown;
 import React from "react";
-
+import Link from "next/link";
+import{useState,useEffect} from "react"
 const NavbarDropDown = () => {
-  const categories = ["Sports", "Politics", "Education", "Business",
-  "Sports", "Politics", "Education", "Business","Sports", "Politics", "Education", "Business"
-,"Sports", "Politics", "Education", "Business"
-,"Sports", "Politics", "Education", "Business"
-,"Sports", "Politics", "Education", "Business"
-,"Sports", "Politics", "Education", "Business"];
-
+  const [innerHeight, setInnerHeight] = useState(window.innerHeight);
+ 
   return (
-    <div className="navbar-dropdown z-50">
-      <div className="container flex justify-between py-4">
-        <div className="navbar-dropdown-column">
-          <h4 className="text-lg font-bold mb-4">More Categories</h4>
-          <ul>
-            {categories.map((category) => (
-              <li key={category} className="text-gray-600 py-2">
-                <a href="#">{category}</a>
-              </li>
-            ))}
-          </ul>
+    <>
+      <section style={{height:`calc(${innerHeight}px)-50px`}} className="bg-[#f7f7f7] overflow-auto rounded-b-sm">
+        <div className="container h-full">
+          <div className="border-b border-gray-400 py-3">
+            <span className="text-xl">Tất cả chuyên mục</span>
+          </div>
+          <div style={{height:`calc(${innerHeight}px - 103px)`}} className="flex w-full ]">
+            <div className="w-[80%] h-full overflow-auto overscroll-contain flex ">
+            <ul>
+
+            </ul>
+            </div>
+            <div className="w-[20%] border-l border-gray-400 ">
+              <div className="wrapper p-3">
+                <ul className="border-gray-500 border-b pb-2">
+                  <li className="hover:underline font-medium mb-2"><Link href='/'>Mới nhất</Link></li>
+                  <li className="hover:underline font-medium mb-2"><Link href='/'>Xem nhiều</Link></li>
+                  <li className="hover:underline font-medium mb-2"><Link href='/'>Gần đây</Link></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="navbar-dropdown-column">
-          <h4 className="text-lg font-bold mb-4">Popular Articles</h4>
-          <ul>
-            <li className="text-gray-600 py-2">
-              <a href="#">The Best Movies of 2022</a>
-            </li>
-            <li className="text-gray-600 py-2">
-              <a href="#">10 Tips for Better Sleep</a>
-            </li>
-            <li className="text-gray-600 py-2">
-              <a href="#">How to Build a Successful Business</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 };
 
