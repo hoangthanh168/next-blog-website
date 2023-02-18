@@ -8,6 +8,7 @@ const Base = ({ children }) => {
       <Header />
       {/* main site */}
       <main>{children}</main>
+      <Footer/>
     </>
   );
 };

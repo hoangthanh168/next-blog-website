@@ -5,7 +5,7 @@ import { AiOutlineUser, AiOutlineSearch } from "react-icons/ai";
 import Link from "next/link";
 import { GrClose } from "react-icons/gr";
 import NavbarDropDown from "@layouts/components/NavbarDropDown";
-
+import { getSlug } from "utils/getSlug";
 const Header = () => {
   const [navFixed, setNavFixed] = useState(false);
   const [activeItem, setActiveItem] = useState("");
@@ -42,11 +42,10 @@ const Header = () => {
           <ul className="menu-category h-full ">
             {categories.map((category) => (
               <li
-              
                 className={getNavItemClasses(category)}
                 onClick={() => setActiveItem(category)}
               >
-                <Link className="text-base font-medium" href="/">{category}</Link>
+                <Link className="text-base font-medium" href={`/${getSlug(category)}`}>{category}</Link>
               </li>
             ))}
             <li className="flex items-center relative">
