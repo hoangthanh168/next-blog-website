@@ -3,7 +3,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <>
-      <div className="bg-[#f5f5f5]">
+      <footer className="bg-[#f5f5f5]">
         <div className="container flex p-10">
           <div className="col-left px-5 border-r border-gray-300">
             <ul >
@@ -72,7 +72,7 @@ const Footer = () => {
               </div>
           </div>
         </div>
-      </div>
+      </footer>
     </>
   );
 };

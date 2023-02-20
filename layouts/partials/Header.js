@@ -34,7 +34,7 @@ const Header = () => {
   return (
     
     <>
-      <header className=" fixed w-full h-[50px] z-50 ">
+      <header className="sticky w-full h-[50px] z-50 border-b border-gray-300">
         <nav className="navbar container ">
           <div>
             <Logo />
